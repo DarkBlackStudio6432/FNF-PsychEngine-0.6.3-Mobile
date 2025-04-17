@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Reiniciar Musica', 'Change Difficulty', 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -46,7 +46,7 @@ class PauseSubState extends MusicBeatSubstate
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
+				menuItemsOG.insert(3, 'Pular Tempo');
 			}
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
@@ -135,7 +135,7 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		addTouchPad(menuItems.contains('Skip Time') ? "LEFT_FULL" : "UP_DOWN", "A");
+		addTouchPad(menuItems.contains('Pular Tempo') ? "LEFT_FULL" : "UP_DOWN", "A");
 		addTouchPadCamera();
 	}
 
@@ -166,7 +166,7 @@ class PauseSubState extends MusicBeatSubstate
 		var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Skip Time':
+			case 'Pular Tempo':
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -226,14 +226,14 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Reiniciar Musica":
 					restartSong();
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
 				case 'Chart Editor':
 					PlayState.instance.openChartEditor();
-				case 'Skip Time':
+				case 'Pular tempo':
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
@@ -360,7 +360,7 @@ class PauseSubState extends MusicBeatSubstate
 			item.targetY = i;
 			grpMenuShit.add(item);
 
-			if(menuItems[i] == 'Skip Time')
+			if(menuItems[i] == 'Pular Tempo')
 			{
 				skipTimeText = new FlxText(0, 0, 0, '', 64);
 				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
