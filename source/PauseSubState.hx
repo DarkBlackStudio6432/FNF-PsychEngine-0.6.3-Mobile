@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Reiniciar musica', 'Mudar Dificuldade', 'Sair para o menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -218,7 +218,7 @@ class PauseSubState extends MusicBeatSubstate
 			{
 				case "Resume":
 					close();
-				case 'Change Difficulty':
+				case 'Mudar Dificuldade':
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
@@ -226,7 +226,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Reiniciar musica":
 					restartSong();
 				case "Leave Charting Mode":
 					restartSong();
@@ -257,7 +257,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu":
+				case "Sair para o menu":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 
