@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Reiniciar Musica', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Reiniciar Musica', 'Change Difficulty', 'Sair para o menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -46,7 +46,7 @@ class PauseSubState extends MusicBeatSubstate
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
-				menuItemsOG.insert(3, 'Pular Tempo');
+				menuItemsOG.insert(3, 'Skip Time');
 			}
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
@@ -135,7 +135,7 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		addTouchPad(menuItems.contains('Pular Tempo') ? "LEFT_FULL" : "UP_DOWN", "A");
+		addTouchPad(menuItems.contains('Skip Time') ? "LEFT_FULL" : "UP_DOWN", "A");
 		addTouchPadCamera();
 	}
 
@@ -166,7 +166,7 @@ class PauseSubState extends MusicBeatSubstate
 		var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Pular Tempo':
+			case 'Skip Time':
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -257,7 +257,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu":
+				case "Sair para o menu":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 
