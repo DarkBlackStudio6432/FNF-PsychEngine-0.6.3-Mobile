@@ -40,9 +40,9 @@ class OptionsState extends MusicBeatState
 			removeTouchPad();
 		}
 		switch(label) {
-			case 'Note Colors':
+			case 'Cor das Notas':
 				openSubState(new options.NotesSubState());
-			case 'Controls':
+			case 'Controles':
 				openSubState(new options.ControlsSubState());
 			case 'Graphics':
 				openSubState(new options.GraphicsSettingsSubState());
