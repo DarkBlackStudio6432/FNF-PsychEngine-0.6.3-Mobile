@@ -29,13 +29,13 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Cor das Notas', 'Controles', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Mobile Options'];
+	var options:Array<String> = ['Cor das Notas', 'Controles', 'Ajuste de Delay e Combo', 'Graficos', 'Visuais e UI', 'Gameplay', 'Opcoes Mobile'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
-		if (label != "Adjust Delay and Combo"){
+		if (label != "Ajuste de Delay e Combo"){
 			persistentUpdate = false;
 			removeTouchPad();
 		}
@@ -44,15 +44,15 @@ class OptionsState extends MusicBeatState
 				openSubState(new options.NotesSubState());
 			case 'Controles':
 				openSubState(new options.ControlsSubState());
-			case 'Graphics':
+			case 'Graficos':
 				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI':
+			case 'Visuais e UI':
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
+			case 'Ajuste de Delay e Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
-			case 'Mobile Options':
+			case 'Opcoes Mobile':
 				openSubState(new mobile.options.MobileOptionsSubState());
 		}
 	}
