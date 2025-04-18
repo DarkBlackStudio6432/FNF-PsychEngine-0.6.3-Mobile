@@ -135,7 +135,7 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		addTouchPad(menuItems.contains('Skip Time') ? "LEFT_FULL" : "UP_DOWN", "A");
+		addTouchPad(menuItems.contains('Pular Tempo') ? "LEFT_FULL" : "UP_DOWN", "A");
 		addTouchPadCamera();
 	}
 
@@ -360,7 +360,7 @@ class PauseSubState extends MusicBeatSubstate
 			item.targetY = i;
 			grpMenuShit.add(item);
 
-			if(menuItems[i] == 'Pular Tempo')
+			if(menuItems[i] == 'Skip Time')
 			{
 				skipTimeText = new FlxText(0, 0, 0, '', 64);
 				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
