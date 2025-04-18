@@ -59,7 +59,7 @@ class PauseSubState extends MusicBeatSubstate
 			var diff:String = '' + CoolUtil.difficulties[i];
 			difficultyChoices.push(diff);
 		}
-		difficultyChoices.push('BACK');
+		difficultyChoices.push('Voltar');
 
 
 		pauseMusic = new FlxSound();
@@ -166,7 +166,7 @@ class PauseSubState extends MusicBeatSubstate
 		var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Skip Time':
+			case 'Pular tempo':
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -233,7 +233,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.chartingMode = false;
 				case 'Chart Editor':
 					PlayState.instance.openChartEditor();
-				case 'Skip Time':
+				case 'Pular tempo':
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
@@ -248,7 +248,7 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						close();
 					}
-				case "End Song":
+				case "Finalizar musica":
 					close();
 					PlayState.instance.finishSong(true);
 				case 'Toggle Botplay':
