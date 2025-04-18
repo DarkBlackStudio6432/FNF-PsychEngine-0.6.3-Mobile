@@ -46,7 +46,7 @@ class PauseSubState extends MusicBeatSubstate
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
+				menuItemsOG.insert(3, 'Pular tempo');
 			}
 			menuItemsOG.insert(3 + num, 'Finalizar Musica');
 			menuItemsOG.insert(4 + num, 'Modo Pratico');
@@ -248,7 +248,7 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						close();
 					}
-				case "Finalizar musica":
+				case "Finalizar Musica":
 					close();
 					PlayState.instance.finishSong(true);
 				case 'Alternar para Botplay':
