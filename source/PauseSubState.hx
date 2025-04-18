@@ -233,7 +233,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.chartingMode = false;
 				case 'Chart Editor':
 					PlayState.instance.openChartEditor();
-				case 'Skip Time':
+				case 'Pular Tempo':
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
